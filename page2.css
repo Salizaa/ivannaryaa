@@ -1,0 +1,825 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Delius&family=Fredoka:wght@300..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Parisienne&family=Tangerine:wght@400;700&family=Quicksand:wght@300..700&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background-color: #C8D9E6; /* warna lembut ungu pastel */
+  color: #4b4b4b;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  background-color: #C8D9E6; /* sama dengan background utama */
+}
+
+.logo {
+  font-family: "Tangerine", cursive;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #567C8D;
+  text-decoration: none;
+  position: relative;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 1.2s ease forwards;
+}
+
+.logo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 80%;
+  height: 2px;
+  background-color: #567C8D;
+  border-radius: 2px;
+  box-shadow: 0 0 8px #567C8D;
+  animation: glowBlink 2s infinite ease-in-out;
+}
+
+@keyframes glowBlink {
+  0%, 100% {
+    opacity: 0.3;
+    box-shadow: 0 0 5px #567C8D;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 15px #567C8D, 0 0 30px #A7C7E7;
+  }
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
+
+/* Layout utama */
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 100px 180px;
+}
+
+/* Kiri (teks) */
+.text-section {
+  flex: 1;
+  padding-right: 50px;
+  animation: fadeInLeft 1.5s ease;
+}
+
+.text-section h1 {
+  font-family: "Tangerine", cursive;
+  font-size: 3rem;
+  color: #567C8D;
+  margin-bottom: 10px;
+}
+
+.text-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #567C8D;
+}
+
+/* Kanan (video atau foto) */
+.video-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  animation: fadeInRight 1.5s ease;
+}
+
+.video-section video,
+.video-section img {
+  width: 400px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Animasi */
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .text-section {
+    padding-right: 0;
+  }
+  .video-section video,
+  .video-section img {
+    width: 300px;
+  }
+}
+
+/* ===== Our Moments Section ===== */
+.moments {
+  position: relative;
+  text-align: center;
+  padding: 80px 100px;
+  background-color: #F5EFEB; /* beige lembut */
+  animation: fadeIn 1.5s ease;
+  overflow: hidden;
+}
+
+.moments h2 {
+  font-family: "Tangerine", cursive;
+  color: #567C8D; /* navy */
+  font-size: 2.4rem;
+  margin-top: 20px;
+  margin-bottom: 70px;
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+}
+
+.moments h2::before,
+.moments h2::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 80px; /* panjang garis bisa kamu ubah */
+  height: 2px;
+  background-color: #567C8D; /* warna garis */
+}
+
+.moments h2::before {
+  left: -100px; /* jarak garis kiri dari teks */
+}
+
+.moments h2::after {
+  right: -100px; /* jarak garis kanan dari teks */
+}
+
+/* Grid layout */
+.moment-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  margin-bottom: 60px;
+}
+
+.floating-flowers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* di bawah konten */
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-flowers span {
+  position: absolute;
+  color: #567C8D;
+  font-size: 1.5rem;
+  opacity: 0.8;
+  animation: floatFlower 10s infinite ease-in-out;
+}
+
+/* Posisi acak */
+.floating-flowers span:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+.floating-flowers span:nth-child(2) { top: 30%; left: 80%; animation-delay: 2s; }
+.floating-flowers span:nth-child(3) { top: 60%; left: 15%; animation-delay: 1s; }
+.floating-flowers span:nth-child(4) { top: 70%; left: 65%; animation-delay: 3s; }
+.floating-flowers span:nth-child(5) { top: 45%; left: 40%; animation-delay: 1.5s; }
+.floating-flowers span:nth-child(6) { top: 20%; left: 55%; animation-delay: 2.5s; }
+.floating-flowers span:nth-child(7) { top: 80%; left: 25%; animation-delay: 4s; }
+.floating-flowers span:nth-child(8) { top: 50%; left: 90%; animation-delay: 1.8s; }
+.floating-flowers span:nth-child(9) { top: 85%; left: 75%; animation-delay: 0.8s; }
+.floating-flowers span:nth-child(10) { top: 15%; left: 35%; animation-delay: 3.2s; }
+
+@keyframes floatFlower {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-25px) rotate(20deg); opacity: 1; }
+}
+
+/* Wave pembatas */
+.wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: url('https://svgshare.com/i/12rZ.svg') repeat-x;
+  background-size: cover;
+}
+
+/* Kotak foto */
+.moment-card {
+  position: relative;
+  width: 230px;
+  height: 230px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.moment-card:hover {
+  transform: scale(1.05);
+}
+
+.moment-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Lapisan hitam transparan dengan teks */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.overlay span {
+  color: #C8D9E6; /* beige lembut */
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.moment-card:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.moments::after {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 4px;
+  border-radius: 10px;
+  margin: 60px auto 0;
+  background: linear-gradient(to right, #567C8D, #F5EFEB, #567C8D);
+  opacity: 0.8;
+}
+
+.wishlist-section {
+  background-color: #C8D9E6;
+  padding: 100px 10%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.wishlist-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  background-color: #F5EFEB;
+  border-radius: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 10px 40px;
+  max-width: 1000px;
+}
+
+.wishlist-video video {
+  width: 350px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Teks */
+.wishlist-text {
+  flex: 1;
+  color: #567C8D;
+}
+
+.wishlist-text h2 {
+  font-family: 'Tangerine', sans-serif;
+  font-size: 2.5em;
+  font-weight: 600;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.wishlist-text h2::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 270px;
+  height: 2px;
+  background-color: #567C8D;
+}
+
+.wishlist-text p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.wishlist-dates {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: flex-start;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1em;
+}
+
+.wishlist-dates .date-item {
+  background-color: #C8D9E6;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+.wishlist-dates .heart {
+  font-size: 1.4em;
+}
+
+/* Tombol Musik */
+#music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 25px;
+  background-color: #567C8D;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+#music-btn:hover {
+  background-color: #C8D9E6;
+  transform: scale(1.05);
+}
+
+.final-letter {
+  background-color: #F5EFEB;
+  border-radius: 25px;
+  padding: 30px 50px;
+  max-width: 800px;
+  margin: 90px auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  color: #567C8D;
+  font-family: 'Quicksand', sans-serif;
+  position: relative;
+}
+
+.letter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(92, 74, 88, 0.25);
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.letter-header h3 {
+  font-family: 'Tangerine', sans-serif;
+  font-weight: 600;
+  font-size: 2.5em;
+  letter-spacing: 1px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.note-count {
+  font-size: 0.95rem;
+  color: #567C8D;
+}
+
+.letter-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.letter-icon {
+  font-size: 80px;
+  flex-shrink: 0;
+  color: #567C8D;
+  line-height: 1;
+}
+
+.letter-text p {
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #567C8D;
+  margin: 0;
+  text-align: justify;
+}
+
+.signature {
+  display: block;
+  margin-top: 40px;
+  font-size: 1rem;
+  font-style: italic;
+  color: #567C8D;
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* 🌸 RESPONSIVE DESIGN UNTUK WISHLIST DAN FINAL LETTER 🌸 */
+@media (max-width: 1024px) {
+  .wishlist-container {
+    gap: 30px;
+    padding: 20px 30px;
+  }
+
+  .wishlist-video video {
+    width: 300px;
+    height: 200px;
+  }
+
+  .wishlist-text h2{
+    margin-top: 0px;
+  }
+
+  .wishlist-text h2::after {
+    width: 180px;
+  }
+
+  .final-letter {
+    padding: 25px 40px;
+    margin: 70px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 🔹 Wishlist Section */
+  .wishlist-section {
+    padding: 70px 5%;
+  }
+
+  .wishlist-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 25px 30px;
+  }
+
+  .wishlist-video video {
+    width: 100%;
+    height: auto;
+    max-height: 230px;
+  }
+
+  .wishlist-text h2 {
+    font-size: 2.2em;
+  }
+
+  .wishlist-text h2::after {
+    display: none; /* garis hias dihilangin biar gak numpuk */
+  }
+
+  .wishlist-text p {
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .wishlist-dates {
+    justify-content: center;
+  }
+
+  /* 🔹 Final Letter Section */
+  .final-letter {
+    margin: 60px 20px;
+    padding: 30px 25px;
+  }
+
+  .letter-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .letter-header h3 {
+    font-size: 2em;
+  }
+
+  .letter-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .letter-icon {
+    font-size: 60px;
+    margin-bottom: 5px;
+  }
+
+  .letter-text p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .signature {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 30px;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 📱 Untuk HP kecil */
+  .wishlist-section {
+    padding: 50px 4%;
+  }
+
+  .wishlist-container {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .wishlist-text h2 {
+    font-size: 1.8em;
+  }
+
+  .wishlist-text p {
+    font-size: 13px;
+  }
+
+  .final-letter {
+    margin: 40px 15px;
+    padding: 25px 20px;
+  }
+
+  .letter-icon {
+    font-size: 50px;
+  }
+
+  .letter-text p {
+    font-size: 13px;
+  }
+
+  .signature {
+    font-size: 0.85rem;
+  }
+}
+
+/* === 🌸 RESPONSIVE DESIGN REWORK === */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  header {
+    padding: 20px 40px;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .content {
+    padding: 60px 60px 140px;
+    gap: 40px;
+  }
+
+  .text-section h1 {
+    font-size: 2.6rem;
+  }
+
+  .text-section p {
+    font-size: 1rem;
+  }
+
+  .video-section video,
+  .video-section img {
+    width: 350px;
+  }
+
+  .moments {
+    padding: 60px 60px;
+  }
+
+  .moments h2 {
+    font-size: 2rem;
+  }
+
+  .moment-grid {
+    gap: 25px;
+  }
+}
+
+/* HP Besar (max-width: 768px) */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column-reverse;
+    padding: 60px 40px 100px;
+    text-align: center;
+  }
+
+  .text-section {
+    padding: 0;
+  }
+
+  .text-section h1 {
+    font-size: 2.4rem;
+  }
+
+  .text-section p {
+    font-size: 0.95rem;
+  }
+
+  .video-section video,
+  .video-section img {
+    width: 300px;
+    border-radius: 15px;
+  }
+
+  .moments {
+    padding: 60px 40px;
+  }
+
+  .moments h2 {
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+  }
+
+  .moments h2::before,
+  .moments h2::after {
+    width: 50px;
+    left: -70px;
+    right: -70px;
+  }
+
+  .moment-card {
+    width: 200px;
+    height: 200px;
+  }
+
+  .overlay span {
+    font-size: 1rem;
+  }
+}
+
+/* HP Kecil (max-width: 480px) */
+@media (max-width: 480px) {
+  header {
+    padding: 15px 25px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .content {
+    padding: 40px 25px 80px;
+  }
+
+  .text-section h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .text-section p {
+    font-size: 0.9rem;
+  }
+
+  .video-section video,
+  .video-section img {
+    width: 240px;
+    border-radius: 12px;
+  }
+
+  .moments {
+    padding: 50px 25px;
+  }
+
+  .moments h2 {
+    font-size: 1.6rem;
+  }
+
+  .moment-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+  }
+
+  .moment-card {
+    width: 170px;
+    height: 170px;
+  }
+
+  .overlay span {
+    font-size: 0.9rem;
+  }
+
+  .wave-divider {
+    height: 50px;
+  }
+}
+
+/* === FIX PERBAIKAN LAYOUT HIGHLIGHTS === */
+.moments h2 {
+  position: relative;
+  display: inline-block;
+  font-family: "Tangerine", cursive;
+  color: #567C8D;
+  font-size: 2.4rem;
+  margin-top: 20px;
+  margin-bottom: 70px;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Garis kiri kanan */
+.moments h2::before,
+.moments h2::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 80px;
+  height: 2px;
+  background-color: #567C8D;
+  transform: translateY(-50%);
+}
+
+/* Posisi garis */
+.moments h2::before {
+  right: 100%;
+  margin-right: 20px;
+}
+
+.moments h2::after {
+  left: 100%;
+  margin-left: 20px;
+}
+
+/* Tablet dan HP besar */
+@media (max-width: 768px) {
+  .moments h2::before,
+  .moments h2::after {
+    width: 50px;
+    margin: 0 15px;
+  }
+}
+
+/* HP kecil */
+@media (max-width: 480px) {
+  .moments h2 {
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+  }
+  .moments h2::before,
+  .moments h2::after {
+    width: 40px;
+    margin: 0 10px;
+  }
+}
+
+/* Grid rapih, sejajar */
+.moment-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.moment-card {
+  flex: 0 1 230px;
+  height: 230px;
+}
+
+/* HP kecil, kolom satu tengah */
+@media (max-width: 480px) {
+  .moment-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .moment-card {
+    width: 80%;
+    max-width: 260px;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+}
+

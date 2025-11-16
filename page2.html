@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ivan's Birthday</title>
+  <link rel="stylesheet" href="page2.css" />
+</head>
+<body>
+  <audio id="bg-music" loop>
+    <source src="tsunami.mp3" type="audio/mp3">
+  </audio>
+  <button id="music-btn">🎧 Play Music</button>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">Ivan's Birthday</a>
+  </header>
+
+  <section class="content">
+    <div class="text-section">
+      <h1>Happy Birthday, Ivan Aryaputra Rachmadhani!</h1>
+      <p>wishing you endless happiness and success on your special day.
+         may this year bring you closer to all your dreams and fill your heart with joy💙 </p>
+    </div>
+    <div class="video-section">
+      <video src="IMG_1696.MP4" autoplay muted loop></video>
+    </div>
+  </section>
+
+  <section class="moments">
+      <div class="floating-flowers">
+        <span>❀</span>
+        <span>✿</span>
+        <span>❁</span>
+        <span>✽</span>
+        <span>❀</span>
+        <span>✿</span>
+        <span>❁</span>
+        <span>✽</span>
+        <span>❀</span>
+        <span>✿</span>
+      </div>
+    <h2>Highlights</h2>
+    <div class="moment-grid">
+      <a href="moment1.html" class="moment-card">
+        <img src="first.jpeg" alt="Moment 1">
+        <div class="overlay"><span>First Date</span></div>
+      </a>
+      <a href="moment2.html" class="moment-card">
+        <img src="movie.jpeg" alt="Moment 2">
+        <div class="overlay"><span>First Movie Date</span></div>
+      </a>
+      <a href="moment3.html" class="moment-card">
+        <img src="photobooth.jpeg" alt="Moment 3">
+        <div class="overlay"><span>First Photobooth</span></div>
+      </a>
+    </div>
+    <div class="wave-divider"></div>
+  </section>
+
+  <section class="wishlist-section">
+    <div class="wishlist-container">
+      <!-- Video MUTE di kiri -->
+      <div class="wishlist-video">
+        <video autoplay loop muted playsinline>
+          <source src="IMG_6642 (1).mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Teks kanan -->
+      <div class="wishlist-text">
+        <h2>to your tomorrows</h2>
+        <p>
+          aku selalu berdoa semoga kamu panjang umur, sehat, dan dimudahkan dalam setiap langkahmu. semoga segala plan dan mimpi yang kamu kejar bisa tercapai satu per satu ya sayangg dan kebahagiaan baru selalu dateng ke kamu.
+          thank u for always trying, for being patient with me, n for staying even when things get hard. aku tau kalo aku ga selalu gampang buat diadepin, tapi kamu tetep stay, and that means everything. 
+          semoga kita terus tumbuh bareng, belajar saling mahamin, dan tetep ngejaga apa yang udah kita bangun bareng. here’s to our dreams, our little wishes, and everything we’ll face together ahead. love u always💙
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-letter">
+    <div class="letter-header">
+      <h3>a little letter before tomorrow</h3>
+      <span class="note-count">♡ 2,025 Notes</span>
+    </div>
+
+    <div class="letter-content">
+      <div class="letter-icon">🤍</div>
+      <div class="letter-text">
+        <p>
+          sometimes i still can’t believe how far we’ve come.. from random talks, 
+          quiet nights, to every laughter that fills the spaces between.  
+          thank you for staying, for choosing me even in my most difficult days.  
+          you’ve become my calm, my comfort, and my home in ways i never imagined.  
+          i know the future’s still long and uncertain, but i’m glad we’re walking through it together.  
+          may every step ahead bring you warmth, peace, and endless happiness.  
+          keep shining, keep growing, and always know that i’m cheering for you. always, in every tomorrow-!♡  
+        </p>
+      </div>
+    </div>
+
+    <span class="signature">— with love, always.</span>
+  </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const music = document.getElementById("bg-music");
+  const playBtn = document.getElementById("music-btn");
+
+  if (music && playBtn) {
+    // ambil waktu terakhir & status musik
+    const lastTime = localStorage.getItem("musicTime");
+    const isPlaying = localStorage.getItem("musicPlaying") === "true";
+
+    if (lastTime) music.currentTime = parseFloat(lastTime);
+    if (isPlaying) {
+      music.play();
+      playBtn.textContent = "🔇 Stop Music";
+    }
+
+    // toggle play/pause
+    playBtn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        playBtn.textContent = "🔇 Stop Music";
+        localStorage.setItem("musicPlaying", "true");
+      } else {
+        music.pause();
+        playBtn.textContent = "🎧 Play Music";
+        localStorage.setItem("musicPlaying", "false");
+      }
+    });
+
+    // simpan posisi musik setiap 0.5 detik
+    setInterval(() => {
+      localStorage.setItem("musicTime", music.currentTime);
+    }, 500);
+  }
+});
+</script>
+
+</body>
+</html>

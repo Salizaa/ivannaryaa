@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Date</title>
+  <link rel="stylesheet" href="moment3.css" />
+</head>
+<body>
+  <div class="floating-hearts">
+    <span>♥</span>
+    <span>♡</span>
+    <span>❤</span>
+    <span>♥</span>
+    <span>♡</span>
+    <span>❤</span>
+    <span>♥</span>
+    <span>♡</span>
+    <span>❤</span>
+    <span>♥</span>
+  </div>
+  <section class="moment-detail">
+    <div class="image-side">
+      <img src="photobooth.jpeg" alt="photobooth Date Photo" />
+    </div>
+    <div class="text-side">
+      <h3 class="greeting">snapshots-</h3>
+      <p>
+        hehe as we know ini sebenernya bukan photobooth pertama kita tapi yauda ini aja yang dipajang, pasti km ngamuk kl yg coklat yg dipajang, akupun jg gamau😭😭tapi seru kan photobooth? HAHAHA akhirnya ya setelah wacana kita dari berbulan-bulan sebelumnya, jadi juga ni photobooth meskipun banyak lalala nya yang penting jadi dah, senang sekali sayangg selalu diusahain sama kamuu feel so lucky to have you, with your kind and forgiving heart-! hope we’ll always stay together n learn to face every challenge with calm n love yeaa🥷❤️
+      </p>
+      <a href="page2.html" class="back-btn">← Back to Highlights</a>
+    </div>
+  </section>
+
+  <audio id="bg-music" loop>
+    <source src="tsunami.mp3" type="audio/mp3">
+  </audio>
+  <button id="music-btn">🎧 Play Music</button>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const music = document.getElementById("bg-music");
+    const playBtn = document.getElementById("music-btn");
+
+    if (music && playBtn) {
+      // ambil waktu terakhir & status musik
+      const lastTime = localStorage.getItem("musicTime");
+      const isPlaying = localStorage.getItem("musicPlaying") === "true";
+
+      if (lastTime) music.currentTime = parseFloat(lastTime);
+      if (isPlaying) {
+        music.play();
+        playBtn.textContent = "🔇 Stop Music";
+      }
+
+      // toggle play/pause
+      playBtn.addEventListener("click", () => {
+        if (music.paused) {
+          music.play();
+          playBtn.textContent = "🔇 Stop Music";
+          localStorage.setItem("musicPlaying", "true");
+        } else {
+          music.pause();
+          playBtn.textContent = "🎧 Play Music";
+          localStorage.setItem("musicPlaying", "false");
+        }
+      });
+
+      // simpan posisi musik setiap 0.5 detik
+      setInterval(() => {
+        localStorage.setItem("musicTime", music.currentTime);
+      }, 500);
+    }
+  });
+  </script>
+</body>
+</html>
