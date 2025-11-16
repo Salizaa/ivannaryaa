@@ -3,7 +3,7 @@
 body {
   margin: 0;
   font-family: "Quicksand", sans-serif;
-  background-color: #C8D9E6; /* warna lembut ungu pastel */
+  background-color: #C8D9E6; 
   color: #4b4b4b;
 }
 
@@ -13,7 +13,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 25px 60px;
-  background-color: #C8D9E6; /* sama dengan background utama */
+  background-color: #C8D9E6; 
 }
 
 .logo {
@@ -59,7 +59,6 @@ header {
   }
 } 
 
-/* Layout utama */
 .content {
   display: flex;
   justify-content: space-between;
@@ -67,7 +66,6 @@ header {
   padding: 80px 100px 180px;
 }
 
-/* Kiri (teks) */
 .text-section {
   flex: 1;
   padding-right: 50px;
@@ -87,7 +85,6 @@ header {
   color: #567C8D;
 }
 
-/* Kanan (video atau foto) */
 .video-section {
   flex: 1;
   display: flex;
@@ -104,7 +101,6 @@ header {
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-/* Animasi */
 @keyframes fadeInLeft {
   from { opacity: 0; transform: translateX(-40px); }
   to { opacity: 1; transform: translateX(0); }
@@ -115,7 +111,6 @@ header {
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* Responsif */
 @media (max-width: 768px) {
   .content {
     flex-direction: column;
@@ -130,19 +125,18 @@ header {
   }
 }
 
-/* ===== Our Moments Section ===== */
 .moments {
   position: relative;
   text-align: center;
   padding: 80px 100px;
-  background-color: #F5EFEB; /* beige lembut */
+  background-color: #F5EFEB; 
   animation: fadeIn 1.5s ease;
   overflow: hidden;
 }
 
 .moments h2 {
   font-family: "Tangerine", cursive;
-  color: #567C8D; /* navy */
+  color: #567C8D; 
   font-size: 2.4rem;
   margin-top: 20px;
   margin-bottom: 70px;
@@ -156,20 +150,19 @@ header {
   content: "";
   position: absolute;
   top: 50%;
-  width: 80px; /* panjang garis bisa kamu ubah */
+  width: 80px; 
   height: 2px;
-  background-color: #567C8D; /* warna garis */
+  background-color: #567C8D; 
 }
 
 .moments h2::before {
-  left: -100px; /* jarak garis kiri dari teks */
+  left: -100px;
 }
 
 .moments h2::after {
-  right: -100px; /* jarak garis kanan dari teks */
+  right: -100px; 
 }
 
-/* Grid layout */
 .moment-grid {
   position: relative;
   display: grid;
@@ -185,7 +178,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* di bawah konten */
+  z-index: 0; 
   overflow: hidden;
   pointer-events: none;
 }
@@ -198,7 +191,6 @@ header {
   animation: floatFlower 10s infinite ease-in-out;
 }
 
-/* Posisi acak */
 .floating-flowers span:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
 .floating-flowers span:nth-child(2) { top: 30%; left: 80%; animation-delay: 2s; }
 .floating-flowers span:nth-child(3) { top: 60%; left: 15%; animation-delay: 1s; }
@@ -248,7 +240,6 @@ header {
   object-fit: cover;
 }
 
-/* Lapisan hitam transparan dengan teks */
 .overlay {
   position: absolute;
   top: 0;
@@ -263,7 +254,7 @@ header {
 }
 
 .overlay span {
-  color: #C8D9E6; /* beige lembut */
+  color: #C8D9E6; 
   font-family: "Quicksand", sans-serif;
   font-size: 1.1rem;
   letter-spacing: 1px;
@@ -310,7 +301,6 @@ header {
   border-radius: 20px;
 }
 
-/* Teks */
 .wishlist-text {
   flex: 1;
   color: #567C8D;
@@ -361,7 +351,6 @@ header {
   font-size: 1.4em;
 }
 
-/* Tombol Musik */
 #music-btn {
   position: fixed;
   bottom: 20px;
@@ -448,7 +437,6 @@ header {
   padding-right: 10px;
 }
 
-/* 🌸 RESPONSIVE DESIGN UNTUK WISHLIST DAN FINAL LETTER 🌸 */
 @media (max-width: 1024px) {
   .wishlist-container {
     gap: 30px;
@@ -498,7 +486,7 @@ header {
   }
 
   .wishlist-text h2::after {
-    display: none; /* garis hias dihilangin biar gak numpuk */
+    display: none; 
   }
 
   .wishlist-text p {
@@ -510,7 +498,6 @@ header {
     justify-content: center;
   }
 
-  /* 🔹 Final Letter Section */
   .final-letter {
     margin: 60px 20px;
     padding: 30px 25px;
@@ -551,7 +538,6 @@ header {
 }
 
 @media (max-width: 480px) {
-  /* 📱 Untuk HP kecil */
   .wishlist-section {
     padding: 50px 4%;
   }
@@ -587,9 +573,6 @@ header {
   }
 }
 
-/* === 🌸 RESPONSIVE DESIGN REWORK === */
-
-/* Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
   header {
     padding: 20px 40px;
@@ -630,7 +613,6 @@ header {
   }
 }
 
-/* HP Besar (max-width: 768px) */
 @media (max-width: 768px) {
   .content {
     flex-direction: column-reverse;
@@ -682,7 +664,6 @@ header {
   }
 }
 
-/* HP Kecil (max-width: 480px) */
 @media (max-width: 480px) {
   header {
     padding: 15px 25px;
@@ -738,7 +719,6 @@ header {
   }
 }
 
-/* === FIX PERBAIKAN LAYOUT HIGHLIGHTS === */
 .moments h2 {
   position: relative;
   display: inline-block;
@@ -751,7 +731,6 @@ header {
   text-align: center;
 }
 
-/* Garis kiri kanan */
 .moments h2::before,
 .moments h2::after {
   content: "";
@@ -763,7 +742,6 @@ header {
   transform: translateY(-50%);
 }
 
-/* Posisi garis */
 .moments h2::before {
   right: 100%;
   margin-right: 20px;
@@ -774,7 +752,6 @@ header {
   margin-left: 20px;
 }
 
-/* Tablet dan HP besar */
 @media (max-width: 768px) {
   .moments h2::before,
   .moments h2::after {
@@ -783,7 +760,6 @@ header {
   }
 }
 
-/* HP kecil */
 @media (max-width: 480px) {
   .moments h2 {
     font-size: 1.8rem;
@@ -796,7 +772,6 @@ header {
   }
 }
 
-/* Grid rapih, sejajar */
 .moment-grid {
   display: flex;
   flex-wrap: wrap;
@@ -809,7 +784,6 @@ header {
   height: 230px;
 }
 
-/* HP kecil, kolom satu tengah */
 @media (max-width: 480px) {
   .moment-grid {
     flex-direction: column;
@@ -820,6 +794,43 @@ header {
     max-width: 260px;
     height: auto;
     aspect-ratio: 1/1;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding-top: 60px !important;
+    padding-bottom: 160px !important;
+    text-align: center !important;
+    flex-direction: column-reverse !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .text-section {
+    padding: 0 !important;
+    margin-top: 20px;
+  }
+
+  .video-section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 60px;
+  }
+
+  .video-section img,
+  .video-section video {
+    width: 260px !important;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-section {
+    padding: 0 28px !important; 
+    margin-top: 0px;
+    text-align: center !important;
   }
 }
 
