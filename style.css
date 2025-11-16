@@ -118,64 +118,20 @@ p {
 }
 
 @media (max-width: 480px) {
-
-  body {
-    padding: 20px 0;
-    overflow: hidden;
-  }
-
-  .container {    
-    padding: 20px 0;             
-    height: auto;                
-  }
-
-  .title {
-    font-size: 48px;            
-    margin-bottom: 10px;
-  }
-
-  .cake {
-    width: 220px;                
-  }
-
-  .wish {
-    font-size: 1.8rem;           
-    padding: 0 20px;              
-    margin-top: 20px;
-  }
-
-  .hint {
-    font-size: 0.8rem;
-  }
-
-  .door {
-    height: 100%;
-  }
-}
-
-@media (max-width: 480px) {
   .container {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    height: auto; /* jangan pakai 100vh biar tidak terjepit */
-  }
-
-  body {
-    height: auto; /* biar ngikut konten */
-    min-height: 100vh;
+    padding: 20px 0 40px; 
   }
 
   .cake {
-    width: 240px; /* sedikit kecil supaya balance */
+    width: 230px;
   }
 
   .title {
-    font-size: 55px;
+    font-size: 52px;
   }
 
   .wish {
-    font-size: 1.9rem;
-    margin-top: 20px;
+    font-size: 1.8rem;
+    margin-top: 18px;
   }
 }
-
