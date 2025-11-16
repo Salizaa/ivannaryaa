@@ -124,8 +124,7 @@ p {
     overflow: hidden;
   }
 
-  .container {
-    transform: translateY(0);      
+  .container {    
     padding: 20px 0;             
     height: auto;                
   }
@@ -153,3 +152,30 @@ p {
     height: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    height: auto; /* jangan pakai 100vh biar tidak terjepit */
+  }
+
+  body {
+    height: auto; /* biar ngikut konten */
+    min-height: 100vh;
+  }
+
+  .cake {
+    width: 240px; /* sedikit kecil supaya balance */
+  }
+
+  .title {
+    font-size: 55px;
+  }
+
+  .wish {
+    font-size: 1.9rem;
+    margin-top: 20px;
+  }
+}
+
